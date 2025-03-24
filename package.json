@@ -20,6 +20,7 @@
     "tailwindcss-primeui": "latest",
     "unplugin-vue-components": "latest",
     "vite": "^4.0.0",
+    "vite-plugin-vue-devtools": "^7.7.2",
     "vue": "^3.2.45",
     "vue-router": "^4.5.0"
   },

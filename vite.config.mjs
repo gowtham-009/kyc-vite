@@ -3,12 +3,13 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
 import {PrimeVueResolver} from '@primevue/auto-import-resolver';
-
+import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
 
     plugins: [
         vue(),
+        vueDevTools(),
         Components({
             resolvers: [
                 PrimeVueResolver()
@@ -22,14 +23,7 @@ export default defineConfig({
     },
 
     build: {
-      rollupOptions: {
-          output:{
-              manualChunks(id) {
-                  if (id.includes('node_modules')) {
-                      return id.toString().split('node_modules/')[1].split('/')[0].toString();
-                  }
-              }
-          }
+        chunkSizeWarningLimit: 1000, // Increase limit to 1000 kBs
       }
-  }    
+    
 });
