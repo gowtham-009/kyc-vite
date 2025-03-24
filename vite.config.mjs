@@ -19,5 +19,20 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    }
+    },
+
+    plugins: [vue()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              if (id.includes('vuetify')) return 'vuetify';
+              if (id.includes('vue')) return 'vue';
+              return 'vendor';
+            }
+          },
+        },
+      },
+    },
 });
