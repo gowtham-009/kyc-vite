@@ -7,6 +7,8 @@ import {PrimeVueResolver} from '@primevue/auto-import-resolver';
 
 export default defineConfig({
 
+  
+
     plugins: [
         vue(),
         Components({
@@ -35,4 +37,6 @@ export default defineConfig({
         },
       },
     },
+
+    base: '/app/',
 });
