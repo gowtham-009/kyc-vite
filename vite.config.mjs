@@ -7,8 +7,6 @@ import {PrimeVueResolver} from '@primevue/auto-import-resolver';
 
 export default defineConfig({
 
-  
-
     plugins: [
         vue(),
         Components({
@@ -23,20 +21,15 @@ export default defineConfig({
         }
     },
 
-
     build: {
       rollupOptions: {
-        output: {
-          manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              if (id.includes('vuetify')) return 'vuetify';
-              if (id.includes('vue')) return 'vue';
-              return 'vendor';
-            }
-          },
-        },
-      },
-    },
-
-    base: '/app/',
+          output:{
+              manualChunks(id) {
+                  if (id.includes('node_modules')) {
+                      return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                  }
+              }
+          }
+      }
+  }    
 });
