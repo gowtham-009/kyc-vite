@@ -7,6 +7,10 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gowtham-009/kyc-vite.git"
+  },
   "dependencies": {
     "@primeuix/themes": "latest",
     "@primevue/auto-import-resolver": "4.3.2",
